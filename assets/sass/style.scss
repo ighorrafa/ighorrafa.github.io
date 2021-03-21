@@ -1,0 +1,145 @@
+// Import fonts
+@import url("../fonts/fonts.css");
+// Colors
+$white: #ffffff;
+$dark: #1f1f1f;
+// Hero
+$hero: 100vh;
+// General
+body {
+    margin: 0;
+    &.lock {
+        overflow: hidden;
+    }
+    &.night {
+        color: $white;
+        #sec-01 {
+            background: $dark;
+        }
+    }
+    h1 {
+        font-family: 'Bebas Neue';
+        font-weight: 900;
+        margin-bottom: 50px;
+    }
+    p {
+        font-size: 24px;
+        font-family: 'Roboto';
+        font-weight: 400;
+    }
+}
+
+section:not(#wellcome) {
+    padding-top: 150px;
+    padding-bottom: 100px;
+}
+
+.btn-theme {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+    width: 320px;
+    cursor: pointer;
+    .shape {
+        stroke-dasharray: 140 540;
+        stroke-dashoffset: -474;
+        stroke-width: 8px;
+        fill: transparent;
+        border-bottom: 5px solid black;
+        transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+    }
+    .text {
+        font-family: 'Roboto Condensed';
+        font-size: 22px;
+        line-height: 32px;
+        letter-spacing: 8px;
+        color: $white;
+        top: -48px;
+        position: relative;
+        text-transform: uppercase;
+    }
+    &:hover .shape {
+        stroke-width: 2px;
+        stroke-dashoffset: 0;
+        stroke-dasharray: 760;
+    }
+}
+
+// Wellcome
+#wellcome {
+    height: $hero;
+    font-family: 'Bebas Neue';
+    position: relative;
+    top: 0;
+    left: 0;
+    .bg {
+        background: $dark;
+        background-position: center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        width: 100%;
+        height: $hero;
+        transform: scale(1);
+    }
+    .shade {
+        opacity: 0;
+        background: rgba(0, 0, 0, .8);
+        z-index: 3;
+        height: $hero;
+        position: fixed;
+        width: 100%;
+    }
+    .content {
+        text-align: center;
+        color: $white;
+        h1 {
+            font-weight: 900;
+            font-size: 170px;
+            margin-bottom: auto;
+        }
+        p {
+            font-size: 50px;
+            font-family: 'Bebas Neue';
+        }
+        .form-area {
+            display: grid;
+            span {
+                position: absolute;
+                top: 5%;
+                font-size: 30px;
+                right: -5%;
+            }
+            .client-name-input {
+                width: 100%;
+                height: 50px;
+                padding: 5px 10px;
+                font-size: 30px;
+                &::placeholder {
+                    color: #c9c9c9;
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+            .buttons {
+                margin-top: 50px;
+                display: inline-flex;
+                .shape {
+                    stroke: $white;
+                }
+            }
+        }
+    }
+}
+
+#sec-01 {
+    height: 100vh;
+    .text-center {
+        margin: auto 0;
+        p {
+            margin-bottom: 50px;
+        }
+    }
+}
