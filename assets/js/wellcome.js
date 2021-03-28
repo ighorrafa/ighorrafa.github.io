@@ -5,6 +5,7 @@ function startSite() {
     if (name) {
         $('.form-area').css({ "display": "none" });
         $('.client-name').html(name);
+        $('body').removeClass('lock');
     };
 
     if (position > 1) {
@@ -32,17 +33,17 @@ function buttonClick() {
             scrollTop: $("#sec-01").offset().top
         }, 0);
     });
-}
+};
 
 function paralaxScroll() {
     $(window).scroll(function() {
-        var y = $(window).scrollTop();
-        var num = y / 500;
-        var num2 = y * .0004;
+        var posY = $(window).scrollTop();
+        var num = posY / 500;
+        var num2 = posY * .0004;
         var num2mod = num2 + 1;
-        var num3 = y * .2;
+        var num3 = posY * .2;
         var num3mod = num3 + 1;
-        if (y == 0) {
+        if (posY == 0) {
             return $('#wellcome').css({ "z-index": "0" }),
                 $('#wellcome .bg').css({ "position": "relative", "transform": "scale(1)" });
         } else {
