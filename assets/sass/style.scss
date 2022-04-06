@@ -1,5 +1,6 @@
 // Import fonts
 @import url("../fonts/fonts.css");
+@import url('../css/switch.css');
 // Colors
 $white: #ffffff;
 $dark: #1f1f1f;
@@ -7,345 +8,347 @@ $purple: #5a41ad;
 $green: #01ad4f;
 // Hero
 $hero: 100vh;
+// Scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 // General
 * {
-    a {
-        text-decoration: none;
-    }
-    img {
-        max-width: 100%;
-        height: auto;
-    }
+  a {
+    text-decoration: none;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 body {
-    margin: 0;
-    &.lock {
-        overflow: hidden;
-    }
-    &.night,
+  margin: 0;
+  &.lock {
+    overflow: hidden;
+  }
+  &.night {
+    #wellcome,
     #sec-01,
     #sec-03,
     #sec-04,
-    .btn-custom {
+    .btn-custom,
+    .btn-custom.picker {
+      color: $white;
+      background: $dark;
+      transition: 0.2s;
+    }
+    #sec-04 {
+      .border-display {
+        border-top: solid 80px $dark;
+        border-bottom: solid 80px $dark;
+      }
+    }
+    .btn-theme {
+      .shape {
+        stroke: $white;
+      }
+      .text {
         color: $white;
-        background: $dark;
+      }
     }
-    &.night,
-    &.day #sec-02 {
-        .btn-theme {
-            .shape {
-                stroke: $white;
-            }
-            .text {
-                color: $white;
-            }
-        }
+  }
+  &.night,
+  &.day #sec-02 {
+    color: $white;
+    .btn-theme {
+      .shape {
+        stroke: $white;
+      }
+      .text {
+        color: $white;
+      }
     }
-    h1 {
-        font-family: 'Bebas Neue';
-        font-weight: 900;
-        margin-bottom: 50px;
-        text-align: center;
-        font-size: 70px;
+  }
+  &.day {
+    #wellcome,
+    #sec-01,
+    #sec-03,
+    #sec-04,
+    .btn-custom,
+    .btn-custom.picker {
+      background: $white;
+      color: $dark;
+      transition: 0.2s;
     }
-    p {
-        font-size: 24px;
-        font-family: 'Roboto';
-        font-weight: 400;
+    #sec-04 {
+      .border-display {
+        border-top: solid 80px $white;
+        border-bottom: solid 80px $white;
+      }
     }
-    // COLOR PICKER
-    &[data-color="purple"] {
-        #sec-01 strong {
-            color: $purple;
-        }
-        .picker .selected,
-        #sec-02 {
-            background: $purple;
-        }
+    .btn-theme {
+      .shape {
+        stroke: $dark;
+      }
+      .text {
+        color: $dark;
+      }
     }
-    &[data-color="green"] {
-        #sec-01 strong {
-            color: $green;
-        }
-        .picker .selected,
-        #sec-02 {
-            background: $green;
-        }
+  }
+  h1 {
+    font-family: "Bebas Neue";
+    font-weight: 900;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 70px;
+  }
+  p {
+    font-size: 24px;
+    font-family: "Roboto";
+    font-weight: 400;
+  }
+  // COLOR PICKER
+  &[data-color="purple"] {
+    #sec-01 strong {
+      color: $purple;
     }
+    .picker .selected,
+    #sec-02 {
+      background: $purple;
+    }
+  }
+  &[data-color="green"] {
+    #sec-01 strong {
+      color: $green;
+    }
+    .picker .selected,
+    #sec-02 {
+      background: $green;
+    }
+  }
 }
 
-// // MIXIN FEATURED DISPLAY
-// @mixin featuredDisplay($base-width) {
-//     $anime-time: 8s;
-//     $clip-distance: .05;
-//     $clip-size: $base-width * (1 + $clip-distance * 2);
-//     $path-width: 2px;
-//     $main-color: #69ca62;
-//     $base-height: 100vh - 140;
-//     .featured {
-//         position: absolute;
-//         top: 0;
-//         bottom: 0;
-//         left: 0;
-//         right: 0;
-//         width: $base-width;
-//         height: $base-height;
-//         margin: auto;
-//         color: $main-color;
-//         box-shadow: inset 0 0 0 1px rgba($main-color, .5);
-//         &::before,
-//         &::after {
-//             position: absolute;
-//             top: 0;
-//             bottom: 0;
-//             left: 0;
-//             right: 0;
-//             content: '';
-//             z-index: -1;
-//             margin: -1 * $clip-distance * 100%;
-//             box-shadow: inset 0 0 0 $path-width;
-//             animation: clipMe $anime-time linear infinite;
-//         }
-//         &::before {
-//             animation-delay: $anime-time * -.5;
-//         }
-//         // for debug
-//         &:hover {
-//             &::after,
-//             &::before {
-//                 background-color: rgba(#f00, .3);
-//             }
-//         }
-//     }
-//     @keyframes clipMe {
-//         0%,
-//         100% {
-//             clip: rect(0px, $clip-size, $path-width, 0px);
-//         }
-//         25% {
-//             clip: rect(0px, $path-width, $clip-size, 0px);
-//         }
-//         50% {
-//             clip: rect($clip-size - $path-width, $clip-size, $clip-size, 0px);
-//         }
-//         75% {
-//             clip: rect(0px, $clip-size, $clip-size, $clip-size - $path-width);
-//         }
-//     }
-// }
-// // SET WIDTH FOR MIXIN
-// @media(min-width: 992px) {
-//     @include featuredDisplay($base-width: 520px);
-// }
-// @media(min-width: 1200px) {
-//     @include featuredDisplay($base-width: 610px);
-// }
-// @media(min-width: 1400px) {
-//     @include featuredDisplay($base-width: 700px);
-// }
 section:not(#wellcome) {
-    padding-top: 150px;
-    padding-bottom: 100px;
+  padding-top: 150px;
+  padding-bottom: 100px;
 }
 
 .btn-theme {
-    background: transparent;
-    border: none;
-    width: 320px;
-    height: 60px;
+  background: transparent;
+  border: none;
+  width: 320px;
+  height: 60px;
+  position: relative;
+  top: 20%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  .shape {
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -474;
+    stroke-width: 8px;
+    fill: transparent;
+    border-bottom: 5px solid black;
+    transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+  }
+  .text {
+    font-family: "Roboto Condensed";
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: 8px;
+    top: -48px;
     position: relative;
-    top: 20%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    .shape {
-        stroke-dasharray: 140 540;
-        stroke-dashoffset: -474;
-        stroke-width: 8px;
-        fill: transparent;
-        border-bottom: 5px solid black;
-        transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
-    }
-    .text {
-        font-family: 'Roboto Condensed';
-        font-size: 22px;
-        line-height: 32px;
-        letter-spacing: 8px;
-        top: -48px;
-        position: relative;
-        text-transform: uppercase;
-        text-align: center;
-    }
-    &:hover .shape {
-        stroke-width: 2px;
-        stroke-dashoffset: 0;
-        stroke-dasharray: 760;
-    }
+    text-transform: uppercase;
+    text-align: center;
+  }
+  &:hover .shape {
+    stroke-width: 2px;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 760;
+  }
 }
 
 .btn-custom {
-    padding: 10px;
-    position: fixed;
-    left: 95%;
-    box-shadow: 0 2px 10px #00000080;
-    &.picker {
-        top: 50%;
-        transition: 0.5s;
-        overflow: hidden;
-        input {
+  padding: 10px;
+  position: fixed;
+  left: 95%;
+  box-shadow: 0 2px 10px #00000080;
+  &.picker {
+    top: 50%;
+    transition: 0.5s;
+    overflow: hidden;
+    input {
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+      cursor: pointer;
+      &:checked {
+        ~ .colors {
+          height: 65px;
+          li {
             width: 20px;
             height: 20px;
-            opacity: 0;
-            cursor: pointer;
-            &:checked {
-                ~.colors {
-                    height: 65px;
-                    li {
-                        width: 20px;
-                        height: 20px;
-                    }
-                }
-            }
+          }
         }
-        .selected {
-            position: absolute;
-            top: 13px;
-            width: 20px;
-            height: 20px;
-            z-index: -1;
-            &:before {
-                content: '';
-                width: 30px;
-                height: 30px;
-                position: absolute;
-                top: -5px;
-                left: -5px;
-                border: solid 1px #585858
-            }
-        }
-        .colors {
-            margin: 0;
-            padding: 0;
-            height: 0;
-            transition: 0.5s;
-            overflow: hidden;
-            li {
-                list-style: none;
-                margin: 10px 0;
-                cursor: pointer;
-                transition: 0.5s;
-                &.green {
-                    background: $green;
-                }
-                &.purple {
-                    background: $purple;
-                }
-            }
-        }
+      }
     }
+    .selected {
+      position: absolute;
+      top: 13px;
+      width: 20px;
+      height: 20px;
+      z-index: -1;
+      &:before {
+        content: "";
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        border: solid 1px #585858;
+      }
+    }
+    .colors {
+      margin: 0;
+      padding: 0;
+      height: 0;
+      transition: 0.5s;
+      overflow: hidden;
+      li {
+        list-style: none;
+        margin: 10px 0;
+        cursor: pointer;
+        transition: 0.5s;
+        &.green {
+          background: $green;
+        }
+        &.purple {
+          background: $purple;
+        }
+      }
+    }
+  }
+}
+
+// Switch
+
+.switch{
+    position: fixed;
+    top: 10px;
+    right: 50px;
 }
 
 // Wellcome
 #wellcome {
-    min-height: $hero;
-    font-family: 'Bebas Neue';
-    position: relative;
-    top: 0;
-    left: 0;
-    .bg {
+  min-height: $hero;
+  font-family: "Bebas Neue";
+  position: relative;
+  top: 0;
+  left: 0;
+  .bg {
+    width: 100%;
+    height: $hero;
+    transform: scale(1);
+    background-image: url("../img/bg-wellcome.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+  }
+  .shade {
+    opacity: 0;
+    background: #000000cc;
+    z-index: 3;
+    height: $hero;
+    position: fixed;
+    width: 100%;
+  }
+  .content {
+    text-align: center;
+    h1 {
+      font-weight: 900;
+      font-size: 130px;
+      margin-bottom: auto;
+    }
+    p {
+      font-size: 50px;
+      font-family: "Bebas Neue";
+    }
+    .form-area {
+      display: grid;
+      span {
+        position: absolute;
+        top: 5%;
+        font-size: 30px;
+        right: -5%;
+      }
+      .client-name-input {
         width: 100%;
-        height: $hero;
-        transform: scale(1);
-    }
-    .shade {
-        opacity: 0;
-        background: #000000cc;
-        z-index: 3;
-        height: $hero;
-        position: fixed;
-        width: 100%;
-    }
-    .content {
-        text-align: center;
-        h1 {
-            font-weight: 900;
-            font-size: 130px;
-            margin-bottom: auto;
+        height: 50px;
+        padding: 5px 10px;
+        font-size: 30px;
+        &::placeholder {
+          color: #c9c9c9;
         }
-        p {
-            font-size: 50px;
-            font-family: 'Bebas Neue';
+        &:focus {
+          outline: none;
         }
-        .form-area {
-            display: grid;
-            span {
-                position: absolute;
-                top: 5%;
-                font-size: 30px;
-                right: -5%;
-            }
-            .client-name-input {
-                width: 100%;
-                height: 50px;
-                padding: 5px 10px;
-                font-size: 30px;
-                &::placeholder {
-                    color: #c9c9c9;
-                }
-                &:focus {
-                    outline: none;
-                }
-            }
-            .buttons {
-                margin-top: 50px;
-                display: inline-flex;
-                .btn-theme {
-                    margin: 30px auto 0;
-                }
-            }
+      }
+      .buttons {
+        margin-top: 50px;
+        display: inline-flex;
+        .btn-theme {
+          margin: 30px auto 0;
         }
+      }
     }
+  }
 }
 
 #sec-01 {
-    min-height: 100vh;
-    .text-center {
-        margin: auto 0;
-        p {
-            margin-bottom: 50px;
-        }
+  min-height: 100vh;
+  .text-center {
+    margin: auto 0;
+    p {
+      margin-bottom: 50px;
     }
+  }
 }
 
 #sec-03 {
-    li {
-        font-size: 24px;
-        padding: 10px 0;
-    }
+  li {
+    font-size: 24px;
+    padding: 10px 0;
+  }
 }
 
 #sec-04 {
-    h1 {
-        text-align: left;
-        margin-bottom: 20px;
+  h1 {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  .btn-theme {
+    margin-top: 100px;
+    display: block;
+  }
+  .border-display {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: $hero;
+    + .row {
+      padding-top: 80px;
     }
-    .btn-theme {
-        margin-top: 100px;
-        display: block;
-    }
-    .border-display {
-        position: absolute;
-        right: 0;
-        width: 50%;
-        height: $hero;
-        border-top: solid 80px $dark;
-        border-bottom: solid 80px $dark;
-        +.row {
-            padding-top: 80px;
-        }
-    }
+  }
 }
 
 #sec-05 {
-    height: $hero;
+  height: $hero;
 }

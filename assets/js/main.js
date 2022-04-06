@@ -20,13 +20,24 @@ $(window).scroll(function() {
 
 var lastScrollTop = 0;
 
-// element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
-window.addEventListener("scroll", function() { // or window.addEventListener("scroll"....
-    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+window.addEventListener("scroll", function() { 
+    var st = window.pageYOffset || document.documentElement.scrollTop;
     if (st > lastScrollTop) {
         console.log('descendo');
     } else {
         console.log('subindo');
     }
-    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+    lastScrollTop = st <= 0 ? 0 : st;
 }, false);
+
+function switchNightMode(obj){
+    const body = document.getElementsByTagName("body");
+
+    if($(obj).is(":checked")){
+        body[0].classList.remove('night');
+        body[0].classList.add('day');
+    } else {
+        body[0].classList.remove('day');
+        body[0].classList.add('night');
+    }
+}

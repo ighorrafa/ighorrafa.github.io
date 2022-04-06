@@ -1,0 +1,102 @@
+input[type="radio"],
+input[type="checkbox"] {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+}
+.toggle {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 30px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.toggle:before {
+  content: "";
+  text-align: right;
+  position: relative;
+  top: 3px;
+  left: 3px;
+  width: 50px;
+  height: 22px;
+  font-size: 10px;
+  display: block;
+  background: #e6e6e6;
+  border-radius: 30px;
+  -webkit-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+  padding: 2px 8px;
+}
+.toggle span {
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  width: 24px;
+  height: 24px;
+  display: block;
+  background: #fff;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.toggle span:before {
+  font-family: "Fontawesome";
+  content: "\f186";
+  position: absolute;
+  display: block;
+  margin: 0px;
+  width: 24px;
+  height: 24px;
+  background: #000;
+  border-radius: 50%;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: none;
+  color: #fff;
+text-align: center;}
+
+#cbx:checked + .toggle:before,
+#cbx2:checked + .toggle:before {
+  background: #f6d379;
+  content: "";
+  text-align: left;
+  color: #fff;
+}
+
+#cbx:checked + .toggle span,
+#cbx2:checked + .toggle span {
+  background: #f1bc31;
+  -webkit-transform: translateX(31px);
+  -ms-transform: translateX(31px);
+  transform: translateX(31px);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25),
+    background 0.15s ease;
+  -o-transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25),
+    background 0.15s ease;
+  transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25), background 0.15s ease;
+  -webkit-box-shadow: 0 3px 8px rgba(241, 188, 49, 0.7);
+  box-shadow: 0 3px 8px rgba(241, 188, 49, 0.7);
+}
+#cbx:checked + .toggle span:before,
+#cbx2:checked + .toggle span:before {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  font-family: "Fontawesome";
+  content: "\f185";
+  background: #f1bc31;
+  color: #000;
+}
