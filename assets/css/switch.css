@@ -1,3 +1,9 @@
+.switch{
+    position: fixed;
+    top: 10px;
+    right: 50px;
+}
+
 input[type="radio"],
 input[type="checkbox"] {
   -webkit-box-sizing: border-box;

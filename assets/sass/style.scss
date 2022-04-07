@@ -45,6 +45,7 @@ body {
     #sec-01,
     #sec-03,
     #sec-04,
+    #sec-05,
     .btn-custom,
     .btn-custom.picker {
       color: $white;
@@ -55,6 +56,11 @@ body {
       .border-display {
         border-top: solid 80px $dark;
         border-bottom: solid 80px $dark;
+      }
+    }
+    #sec-05{
+      span{
+        color: $white;
       }
     }
     .btn-theme {
@@ -83,6 +89,7 @@ body {
     #sec-01,
     #sec-03,
     #sec-04,
+    #sec-05,
     .btn-custom,
     .btn-custom.picker {
       background: $white;
@@ -93,6 +100,11 @@ body {
       .border-display {
         border-top: solid 80px $white;
         border-bottom: solid 80px $white;
+      }
+    }
+    #sec-05{
+      span{
+        color: $dark;
       }
     }
     .btn-theme {
@@ -238,14 +250,6 @@ section:not(#wellcome) {
   }
 }
 
-// Switch
-
-.switch{
-    position: fixed;
-    top: 10px;
-    right: 50px;
-}
-
 // Wellcome
 #wellcome {
   min-height: $hero;
@@ -351,4 +355,14 @@ section:not(#wellcome) {
 
 #sec-05 {
   height: $hero;
+  .markee{
+    display: flex;
+    overflow-x: hidden;
+    justify-content: center;
+  }
+  span{
+    font-size: 90px;
+    font-family: 'Roboto';
+    text-transform: uppercase;
+  }
 }

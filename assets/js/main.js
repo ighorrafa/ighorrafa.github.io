@@ -1,3 +1,7 @@
+var lastScrollTop = 0;
+
+var st = window.pageYOffset || document.documentElement.scrollTop;
+
 $(window).load(function() {
     startSite();
     AOS.init();
@@ -18,16 +22,12 @@ $(window).scroll(function() {
     }
 });
 
-var lastScrollTop = 0;
-
 window.addEventListener("scroll", function() { 
-    var st = window.pageYOffset || document.documentElement.scrollTop;
-    if (st > lastScrollTop) {
-        console.log('descendo');
-    } else {
-        console.log('subindo');
-    }
     lastScrollTop = st <= 0 ? 0 : st;
+    var posY = $(window).scrollTop();
+    console.log(posY);
+    $('.markee-1').css('padding-left' , ((posY/2) - 3800));
+    $('.markee-2').css('padding-right' , ((posY/2) - 3800));
 }, false);
 
 function switchNightMode(obj){
