@@ -29,7 +29,8 @@ $(window).scroll(function() {
 window.addEventListener("scroll", function() { 
     lastScrollTop = st <= 0 ? 0 : st;
     var posY = $(window).scrollTop();
-    var sectionOffset = $('#sec-05').offset().top / 2.3
+    console.log(posY);
+    var sectionOffset = $('#sec-05').offset().top / 2.3;
     $('.markee-1').css('padding-left' , ((posY/2) - sectionOffset));
     $('.markee-2').css('padding-right' , ((posY/2) - sectionOffset));
 }, false);
