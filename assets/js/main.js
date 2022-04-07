@@ -7,6 +7,8 @@ $(window).load(function() {
     AOS.init();
 });
 
+// SECTION #4 SCROLL EFFECT
+
 $(window).scroll(function() {
     var vh = $(window).height();
     var posY = $(window).scrollTop();
@@ -22,13 +24,17 @@ $(window).scroll(function() {
     }
 });
 
+// SECTION #5 SLIDE EFFECT
+
 window.addEventListener("scroll", function() { 
     lastScrollTop = st <= 0 ? 0 : st;
     var posY = $(window).scrollTop();
-    console.log(posY);
-    $('.markee-1').css('padding-left' , ((posY/2) - 3800));
-    $('.markee-2').css('padding-right' , ((posY/2) - 3800));
+    var sectionOffset = $('#sec-05').offset().top / 2.3
+    $('.markee-1').css('padding-left' , ((posY/2) - sectionOffset));
+    $('.markee-2').css('padding-right' , ((posY/2) - sectionOffset));
 }, false);
+
+// NIGHT MODE SWITCH
 
 function switchNightMode(obj){
     const body = document.getElementsByTagName("body");
