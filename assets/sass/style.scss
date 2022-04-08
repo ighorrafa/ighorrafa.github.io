@@ -1,6 +1,7 @@
 // Import fonts
 @import url("../fonts/fonts.css");
 @import url('../css/switch.css');
+@import url('../css/border-animation.css');
 // Colors
 $white: #ffffff;
 $dark: #1f1f1f;
@@ -8,6 +9,7 @@ $purple: #5a41ad;
 $green: #01ad4f;
 $blue: #2d74cb;
 $yellow: #ffad34;
+$red: #cb2d2d;
 // Hero
 $hero: 100vh;
 // Scrollbar
@@ -48,6 +50,7 @@ body {
     #sec-03,
     #sec-04,
     #sec-05,
+    #sec-06,
     .btn-custom,
     .btn-custom.picker {
       color: $white;
@@ -73,6 +76,12 @@ body {
         color: $white;
       }
     }
+    .st0{
+      fill: $white;
+    }
+    .st1{
+      stroke: $white;
+    }
   }
   &[data-mode="night"],
   &[data-mode="day"] #sec-02 {
@@ -92,6 +101,7 @@ body {
     #sec-03,
     #sec-04,
     #sec-05,
+    #sec-06,
     .btn-custom,
     .btn-custom.picker {
       background: $white;
@@ -116,6 +126,12 @@ body {
       .text {
         color: $dark;
       }
+    }
+    .st0{
+      fill: $dark;
+    }
+    .st1{
+      stroke: $dark;
     }
   }
   h1 {
@@ -142,6 +158,10 @@ body {
     #sec-04 p{
       color: $purple;
     }
+    #sec-06 .bb{
+      color: $purple;
+      box-shadow: inset 0 0 0 1px $purple;
+    }
   }
   &[data-color="green"] {
     #sec-01 strong {
@@ -153,6 +173,10 @@ body {
     }
     #sec-04 p{
       color: $green;
+    }
+    #sec-06 .bb{
+      color: $green;
+      box-shadow: inset 0 0 0 1px $green;
     }
   }
   &[data-color="blue"] {
@@ -166,6 +190,10 @@ body {
     #sec-04 p{
       color: $blue;
     }
+    #sec-06 .bb{
+      color: $blue;
+      box-shadow: inset 0 0 0 1px $blue;
+    }
   }
   &[data-color="yellow"] {
     #sec-01 strong {
@@ -177,6 +205,26 @@ body {
     }
     #sec-04 p{
       color: $yellow;
+    }
+    #sec-06 .bb{
+      color: $yellow;
+      box-shadow: inset 0 0 0 1px $yellow;
+    }
+  }
+  &[data-color="red"] {
+    #sec-01 strong {
+      color: $red;
+    }
+    .picker .selected,
+    #sec-02 {
+      background: $red;
+    }
+    #sec-04 p{
+      color: $red;
+    }
+    #sec-06 .bb{
+      color: $red;
+      box-shadow: inset 0 0 0 1px $red;
     }
   }
 }
@@ -236,7 +284,7 @@ section:not(#wellcome) {
       cursor: pointer;
       &:checked {
         ~ .colors {
-          height: 120px;
+          height: 150px;
           li {
             width: 20px;
             height: 20px;
@@ -282,6 +330,9 @@ section:not(#wellcome) {
         }
         &.yellow {
           background: $yellow;
+        }
+        &.red {
+          background: $red;
         }
       }
     }
@@ -392,7 +443,6 @@ section:not(#wellcome) {
 }
 
 #sec-05 {
-  height: $hero;
   .markee{
     display: flex;
     overflow-x: hidden;
@@ -403,4 +453,14 @@ section:not(#wellcome) {
     font-family: 'Roboto';
     text-transform: uppercase;
   }
+}
+
+.st0 {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+}
+.st1 {
+  fill: none;
+  stroke-width: 30;
+  stroke-miterlimit: 10;
 }
