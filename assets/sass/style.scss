@@ -6,6 +6,8 @@ $white: #ffffff;
 $dark: #1f1f1f;
 $purple: #5a41ad;
 $green: #01ad4f;
+$blue: #2d74cb;
+$yellow: #ffad34;
 // Hero
 $hero: 100vh;
 // Scrollbar
@@ -40,7 +42,7 @@ body {
   &.lock {
     overflow: hidden;
   }
-  &.night {
+  &[data-mode="night"] {
     #wellcome,
     #sec-01,
     #sec-03,
@@ -72,8 +74,8 @@ body {
       }
     }
   }
-  &.night,
-  &.day #sec-02 {
+  &[data-mode="night"],
+  &[data-mode="day"] #sec-02 {
     color: $white;
     .btn-theme {
       .shape {
@@ -84,7 +86,7 @@ body {
       }
     }
   }
-  &.day {
+  &[data-mode="day"] {
     #wellcome,
     #sec-01,
     #sec-03,
@@ -137,6 +139,9 @@ body {
     #sec-02 {
       background: $purple;
     }
+    #sec-04 p{
+      color: $purple;
+    }
   }
   &[data-color="green"] {
     #sec-01 strong {
@@ -146,12 +151,39 @@ body {
     #sec-02 {
       background: $green;
     }
+    #sec-04 p{
+      color: $green;
+    }
+  }
+  &[data-color="blue"] {
+    #sec-01 strong {
+      color: $blue;
+    }
+    .picker .selected,
+    #sec-02 {
+      background: $blue;
+    }
+    #sec-04 p{
+      color: $blue;
+    }
+  }
+  &[data-color="yellow"] {
+    #sec-01 strong {
+      color: $yellow;
+    }
+    .picker .selected,
+    #sec-02 {
+      background: $yellow;
+    }
+    #sec-04 p{
+      color: $yellow;
+    }
   }
 }
 
 section:not(#wellcome) {
-  padding-top: 150px;
-  padding-bottom: 100px;
+  padding-top: 100px;
+  padding-bottom: 50px;
 }
 
 .btn-theme {
@@ -204,7 +236,7 @@ section:not(#wellcome) {
       cursor: pointer;
       &:checked {
         ~ .colors {
-          height: 65px;
+          height: 120px;
           li {
             width: 20px;
             height: 20px;
@@ -244,6 +276,12 @@ section:not(#wellcome) {
         }
         &.purple {
           background: $purple;
+        }
+        &.blue {
+          background: $blue;
+        }
+        &.yellow {
+          background: $yellow;
         }
       }
     }

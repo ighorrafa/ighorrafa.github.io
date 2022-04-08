@@ -5,4 +5,5 @@ function changeColor(color) {
 $('.colors li').on("click", function() {
     className = $(this).attr('class');
     changeColor(className);
+    localStorage.setItem('color', className);
 });
