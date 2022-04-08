@@ -2,11 +2,27 @@ var lastScrollTop = 0;
 
 var st = window.pageYOffset || document.documentElement.scrollTop;
 
+// PARALAX SCROLL
 
-$(window).load(function() {
-    startSite();
-    AOS.init();
-});
+function paralaxScroll() {
+    $(window).scroll(function() {
+        var posY = $(window).scrollTop();
+        var num = posY / 500;
+        var num2 = posY * .0004;
+        var num2mod = num2 + 1;
+        var num3 = posY * .2;
+        var num3mod = num3 + 1;
+        if (posY == 0) {
+            return $('#wellcome').css({ "z-index": "0" }),
+                $('#wellcome .bg').css({ "position": "relative", "transform": "scale(1)" });
+        } else {
+            return $('.shade').css('opacity', num),
+                $('#wellcome').css({ "z-index": "-1" }),
+                $("#wellcome .bg").css({ "position": "fixed", "transform": "scale(" + num2mod + ")" }),
+                $("#wellcome .content").css({ "margin-top": "-" + num3mod + "px" });
+        };
+    });
+};
 
 // SECTION #4 SCROLL EFFECT
 
@@ -48,3 +64,9 @@ function switchNightMode(obj){
         localStorage.setItem('mode', 'night');
     }
 }
+
+$(window).load(function() {
+    startSite();
+    paralaxScroll();
+    AOS.init();
+});
