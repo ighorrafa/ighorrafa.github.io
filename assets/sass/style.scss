@@ -1,7 +1,7 @@
-// Import fonts
+// Import fonts and stuffs
 @import url("../fonts/fonts.css");
-@import url('../css/switch.css');
-@import url('../css/border-animation.css');
+@import url("../css/switch.css");
+@import url("../css/border-animation.css");
 // Colors
 $white: #ffffff;
 $dark: #1f1f1f;
@@ -63,8 +63,8 @@ body {
         border-bottom: solid 80px $dark;
       }
     }
-    #sec-05{
-      span{
+    #sec-05 {
+      span {
         color: $white;
       }
     }
@@ -76,10 +76,10 @@ body {
         color: $white;
       }
     }
-    .st0{
+    .st0 {
       fill: $white;
     }
-    .st1{
+    .st1 {
       stroke: $white;
     }
   }
@@ -114,8 +114,8 @@ body {
         border-bottom: solid 80px $white;
       }
     }
-    #sec-05{
-      span{
+    #sec-05 {
+      span {
         color: $dark;
       }
     }
@@ -127,10 +127,10 @@ body {
         color: $dark;
       }
     }
-    .st0{
+    .st0 {
       fill: $dark;
     }
-    .st1{
+    .st1 {
       stroke: $dark;
     }
   }
@@ -155,10 +155,10 @@ body {
     #sec-02 {
       background: $purple;
     }
-    #sec-04 p{
+    #sec-04 p {
       color: $purple;
     }
-    #sec-06 .bb{
+    #sec-06 .bb {
       color: $purple;
       box-shadow: inset 0 0 0 1px $purple;
     }
@@ -171,10 +171,10 @@ body {
     #sec-02 {
       background: $green;
     }
-    #sec-04 p{
+    #sec-04 p {
       color: $green;
     }
-    #sec-06 .bb{
+    #sec-06 .bb {
       color: $green;
       box-shadow: inset 0 0 0 1px $green;
     }
@@ -187,10 +187,10 @@ body {
     #sec-02 {
       background: $blue;
     }
-    #sec-04 p{
+    #sec-04 p {
       color: $blue;
     }
-    #sec-06 .bb{
+    #sec-06 .bb {
       color: $blue;
       box-shadow: inset 0 0 0 1px $blue;
     }
@@ -203,10 +203,10 @@ body {
     #sec-02 {
       background: $yellow;
     }
-    #sec-04 p{
+    #sec-04 p {
       color: $yellow;
     }
-    #sec-06 .bb{
+    #sec-06 .bb {
       color: $yellow;
       box-shadow: inset 0 0 0 1px $yellow;
     }
@@ -219,10 +219,10 @@ body {
     #sec-02 {
       background: $red;
     }
-    #sec-04 p{
+    #sec-04 p {
       color: $red;
     }
-    #sec-06 .bb{
+    #sec-06 .bb {
       color: $red;
       box-shadow: inset 0 0 0 1px $red;
     }
@@ -443,14 +443,14 @@ section:not(#wellcome) {
 }
 
 #sec-05 {
-  .markee{
+  .markee {
     display: flex;
     overflow-x: hidden;
     justify-content: center;
   }
-  span{
+  span {
     font-size: 70px;
-    font-family: 'Roboto';
+    font-family: "Roboto";
     text-transform: uppercase;
   }
 }
@@ -465,6 +465,6 @@ section:not(#wellcome) {
   stroke-miterlimit: 10;
 }
 
-#sec-07{
+#sec-07 {
   height: $hero;
 }
