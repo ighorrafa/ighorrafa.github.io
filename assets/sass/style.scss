@@ -252,7 +252,7 @@ section:not(#wellcome) {
     transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
   }
   .text {
-    font-family: "Roboto Condensed";
+    font-family: "Roboto";
     font-size: 22px;
     line-height: 32px;
     letter-spacing: 8px;
@@ -350,10 +350,11 @@ section:not(#wellcome) {
     width: 100%;
     height: $hero;
     transform: scale(1);
-    background-image: url("../img/bg-wellcome.png");
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: cover;
+  }
+  .particles-js-canvas-el {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   .shade {
     opacity: 0;
